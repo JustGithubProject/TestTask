@@ -11,14 +11,14 @@ class CategoryConstants:
 
 @dataclass(frozen=True)
 class JobPositionConstants:
-    WEB_DEVELOPERS = "https://www.work.ua/resumes-it-web+developer/"
-    PYTHON_DEVELOPERS = "https://www.work.ua/resumes-it-python-developer/"
-    JAVASCRIPT_DEVELOPERS = "https://www.work.ua/resumes-it-javascript-developer/"
-    DATA_SCIENTISTS = "https://www.work.ua/resumes-it-data+scientist/"
-    GOLANG_DEVELOPER = "https://www.work.ua/resumes-it-golang+developer/"
-    FRONTEND_DEVELOPER = "https://www.work.ua/resumes-frontend+developer/"
-    BACKEND_DEVELOPER = "https://www.work.ua/resumes-backend-developer/"
-    FULLSTACK_DEVELOPER = "https://www.work.ua/resumes-fullstack+developer/"
+    WEB_DEVELOPERS = "https://www.work.ua/resumes-it-web+developer"
+    PYTHON_DEVELOPERS = "https://www.work.ua/resumes-it-python-developer"
+    JAVASCRIPT_DEVELOPERS = "https://www.work.ua/resumes-it-javascript-developer"
+    DATA_SCIENTISTS = "https://www.work.ua/resumes-it-data+scientist"
+    GOLANG_DEVELOPER = "https://www.work.ua/resumes-it-golang+developer"
+    FRONTEND_DEVELOPER = "https://www.work.ua/resumes-frontend+developer"
+    BACKEND_DEVELOPER = "https://www.work.ua/resumes-backend-developer"
+    FULLSTACK_DEVELOPER = "https://www.work.ua/resumes-fullstack+developer"
     
 
 @dataclass(frozen=True)
