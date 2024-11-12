@@ -12,6 +12,12 @@ def filter_by_job(job_kind: str) -> str:
         return constants.JobPositionConstants.DATA_SCIENTISTS
     if job_kind == "Golang developer":
         return constants.JobPositionConstants.GOLANG_DEVELOPER
+    if job_kind == "Frontend developer":
+        return constants.JobPositionConstants.FRONTEND_DEVELOPER
+    if job_kind == "Backend developer":
+        return constants.JobPositionConstants.BACKEND_DEVELOPER
+    if job_kind == "Fullstack developer":
+        return constants.JobPositionConstants.FULLSTACK_DEVELOPER
 
 
 def filter_by_experience(experience_kind: str) -> str:

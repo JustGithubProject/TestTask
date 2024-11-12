@@ -1,12 +1,6 @@
-
-
-from bs4 import BeautifulSoup as BS4
-
-
 import requests
 
-
-
+from bs4 import BeautifulSoup as BS4
 
 
 def save_html(filename: str, html) -> None:
