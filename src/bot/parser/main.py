@@ -2,9 +2,8 @@ import requests
 
 from bs4 import BeautifulSoup as BS4
 
-import constants
-import utils
-import filters
+from parser import constants, utils
+from parser import filters
 
 
 def request_to_site(url: str):
@@ -64,7 +63,8 @@ def main():
             3) - Javascript developer
             4) - Data science
             5) - Golang developer
-            6) - Backend developer
+            6) - Frontend developer
+            7) - Backend developer
             8) - Fullstack developer
         """
     )

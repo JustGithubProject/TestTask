@@ -1,4 +1,4 @@
-import constants
+from parser import constants
 
 
 def filter_by_job(job_kind: str) -> str:
