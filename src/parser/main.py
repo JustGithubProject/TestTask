@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup as BS4
 import requests
 
 
-import constants
+
 
 
 def save_html(filename: str, html) -> None:
@@ -54,43 +54,7 @@ def get_owners_info() -> list:
     return p_mt_xs_mb_0_content_all
 
 
-def filter_by_job(job_kind: str) -> str:
-    if job_kind == "Web developer":
-        return constants.JobPositionConstants.WEB_DEVELOPERS
-    if job_kind == "Python developer":
-        return constants.JobPositionConstants.PYTHON_DEVELOPERS
-    if job_kind == "Javascript developer":
-        return constants.JobPositionConstants.JAVASCRIPT_DEVELOPERS
-    if job_kind == "Data science":
-        return constants.JobPositionConstants.DATA_SCIENTISTS
-    if job_kind == "Golang developer":
-        return constants.JobPositionConstants.GOLANG_DEVELOPER
 
-
-def filter_by_experience(experience_kind: str) -> str:
-    if experience_kind == "No experience":
-        return constants.ExperienceConstants.NO_EXPERIENCE
-    if experience_kind == "1 year":
-        return constants.ExperienceConstants.ONE_YEAR_EXPERIENCE
-    if experience_kind == "1-2 years":
-        return constants.ExperienceConstants.ONE_TWO_YEARS_EXPERIENCE
-    if experience_kind == "2-5 years":
-        return constants.ExperienceConstants.TWO_FIVE_YEARS_EXPERIENCE
-    if experience_kind == "5+":
-        return constants.ExperienceConstants.FIVE_AND_MORE_YEARS_EXPERIENCE
-    
-        
-    
-    
-
-
-def filter_by_location():
-    pass
-
-
-def filter_by_salary():
-    pass
-    
 
 
 def get_resumes():
