@@ -2,27 +2,19 @@ import requests
 
 from bs4 import BeautifulSoup as BS4
 
-
-def save_html(filename: str, html) -> None:
-    with open(filename, "w") as file:
-        file.write(html)
-        
-
-def read_html(filename: str) -> str:
-    with open(filename, "r") as file:
-        html_content = file.read()
-    return html_content
+import constants
+import utils
 
 
 def request_to_site(url: str):
     response = requests.get(url)
     
     if response.status_code == 200:
-        save_html("index.html", response.text)
+        utils.save_html("index.html", response.text)
 
 
 def get_titles() -> list:
-    html_content = read_html("index.html")
+    html_content = utils.read_html("index.html")
     soup = BS4(html_content, "html.parser")
     div_col_md_8 = soup.find("div", {"class": "col-md-8"})
     h2_mt_0_all = div_col_md_8.find_all("h2", {"class": "mt-0"})
@@ -31,7 +23,7 @@ def get_titles() -> list:
 
 
 def get_links() -> list:
-    html_content = read_html("index.html")
+    html_content = utils.read_html("index.html")
     soup = BS4(html_content, "html.parser")
     div_col_md_8 = soup.find("div", {"class": "col-md-8"})
     h2_mt_0_all = div_col_md_8.find_all("h2", {"class": "mt-0"})
@@ -40,15 +32,12 @@ def get_links() -> list:
 
 
 def get_owners_info() -> list:
-    html_content = read_html("index.html")
+    html_content = utils.read_html("index.html")
     soup = BS4(html_content, "html.parser")
     div_col_md_8 = soup.find("div", {"class": "col-md-8"})
     p_mt_xs_mb_0 = div_col_md_8.find_all("p", {"class": "mt-xs mb-0"})
     p_mt_xs_mb_0_content_all = [item.text for item in p_mt_xs_mb_0]
     return p_mt_xs_mb_0_content_all
-
-
-
 
 
 def get_resumes():
