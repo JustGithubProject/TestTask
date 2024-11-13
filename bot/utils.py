@@ -7,6 +7,14 @@ from aiogram.types import (
 
 LIST_KEYBOARD_BUTTONS_FOR_START_HANDLER = [
     [
+        KeyboardButton(text="work.ua"),
+        KeyboardButton(text="robota.ua")
+    ]
+]
+
+
+LIST_KEYBOARD_BUTTONS_FOR_JOB_POSITION_HANDLER = [
+    [
         KeyboardButton(text="Web developer"),
         KeyboardButton(text="Python developer"),
     ],

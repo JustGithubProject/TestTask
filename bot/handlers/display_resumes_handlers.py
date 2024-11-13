@@ -7,15 +7,15 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import ReplyKeyboardMarkup
 
 
-from parser import filters
-from parser.parser import get_resumes, request_to_site
+from work_ua_parser import filters
+from work_ua_parser.parser import get_resumes, request_to_site
 from forms import ResumeFilterForm
 
 from utils import (
     LIST_KEYBOARD_BUTTONS_FOR_LOCATION_HANDLER,
     LIST_KEYBOARD_BUTTONS_FOR_EXPERIENCE_HANDLER,
     LIST_KEYBOARD_BUTTONS_FOR_SALARY_HANDLER,
-    LIST_KEYBOARD_BUTTONS_FOR_START_HANDLER
+    LIST_KEYBOARD_BUTTONS_FOR_JOB_POSITION_HANDLER
 )
 
 
@@ -28,7 +28,7 @@ async def cancel_handler(message: types.Message, state: FSMContext):
     await message.answer(
         "Обери потрібний тобі варіант!",
         reply_markup=ReplyKeyboardMarkup(
-            keyboard=LIST_KEYBOARD_BUTTONS_FOR_START_HANDLER,
+            keyboard=LIST_KEYBOARD_BUTTONS_FOR_JOB_POSITION_HANDLER,
             resize_keyboard=True
         )
     )
