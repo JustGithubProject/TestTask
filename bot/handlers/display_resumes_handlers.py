@@ -11,11 +11,11 @@ from parser.parser import get_resumes, request_to_site
 display_resumes_router = Router()
 
 
-@display_resumes_router.message(F.text == "1️⃣ Web developer")
+@display_resumes_router.message(F.text == "Web developer")
 async def handle_web_developer(message: types.Message):
     """Handler for the "Web developer" resume display"""
     
-    url = filters.filter_by_job("Web developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -25,11 +25,11 @@ async def handle_web_developer(message: types.Message):
         )
 
 
-@display_resumes_router.message(F.text == "2️⃣ Python developer")
+@display_resumes_router.message(F.text == "Python developer")
 async def handle_python_developer(message: types.Message):
     """Handler for the "Python developer" resume display"""
     
-    url = filters.filter_by_job("Python developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -39,11 +39,11 @@ async def handle_python_developer(message: types.Message):
         )
 
 
-@display_resumes_router.message(F.text == "3️⃣ Javascript developer")
+@display_resumes_router.message(F.text == "Javascript developer")
 async def handle_javascript_developer(message: types.Message):
     """Handler for the "Javascript developer" resume display"""
     
-    url = filters.filter_by_job("Javascript developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -53,11 +53,11 @@ async def handle_javascript_developer(message: types.Message):
         )
 
 
-@display_resumes_router.message(F.text == "4️⃣ Data science developer")
+@display_resumes_router.message(F.text == "Data science developer")
 async def handle_data_science_developer(message: types.Message):
     """Handler for the "Data science developer" resume display"""
     
-    url = filters.filter_by_job("Data science developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -67,11 +67,11 @@ async def handle_data_science_developer(message: types.Message):
         )
         
 
-@display_resumes_router.message(F.text == "5️⃣ Golang developer")
+@display_resumes_router.message(F.text == "Golang developer")
 async def handle_golang_developer(message: types.Message):
     """Handler for the "Golang developer" resume display"""
     
-    url = filters.filter_by_job("Golang developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -81,11 +81,11 @@ async def handle_golang_developer(message: types.Message):
         )
 
 
-@display_resumes_router.message(F.text == "6️⃣ Frontend developer")
+@display_resumes_router.message(F.text == "Frontend developer")
 async def handle_frontend_developer(message: types.Message):
     """Handler for the "Frontend developer" resume display"""
     
-    url = filters.filter_by_job("Frontend developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -95,11 +95,11 @@ async def handle_frontend_developer(message: types.Message):
         )
 
 
-@display_resumes_router.message(F.text == "7️⃣ Backend developer")
+@display_resumes_router.message(F.text == "Backend developer")
 async def handle_backend_developer(message: types.Message):
     """Handler for the "Backend developer" resume display"""
     
-    url = filters.filter_by_job("Backend developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
@@ -109,11 +109,11 @@ async def handle_backend_developer(message: types.Message):
         )
 
 
-@display_resumes_router.message(F.text == "8️⃣ Fullstack developer")
+@display_resumes_router.message(F.text == "Fullstack developer")
 async def handle_fullstack_developer(message: types.Message):
     """Handler for the "Fullstack developer" resume display"""
     
-    url = filters.filter_by_job("Fullstack developer")
+    url = filters.filter_by_job(message.text)
     html_content = request_to_site(url)
     cards = get_resumes(html_content)
     
