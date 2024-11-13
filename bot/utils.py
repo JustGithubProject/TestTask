@@ -55,6 +55,7 @@ LIST_KEYBOARD_BUTTONS_FOR_LOCATION_HANDLER = [
         KeyboardButton(text="Луцьк"),
         KeyboardButton(text="Ужгород"),
         KeyboardButton(text="Харків"),
+        KeyboardButton(text="Cancel")
     ]
 ]
 
@@ -66,7 +67,8 @@ LIST_KEYBOARD_BUTTONS_FOR_EXPERIENCE_HANDLER = [
         KeyboardButton(text="1 рік"),
         KeyboardButton(text="1-2 роки"),
         KeyboardButton(text="2-5 роки"),
-        KeyboardButton(text="5+ років")
+        KeyboardButton(text="5+ років"),
+        KeyboardButton(text="Cancel")
     ]
 ]
 
@@ -82,6 +84,7 @@ LIST_KEYBOARD_BUTTONS_FOR_SALARY_HANDLER = [
         KeyboardButton(text="до 40 000 грн"),
         KeyboardButton(text="до 50 000 грн"),
         KeyboardButton(text="до 100 000 грн"),
+        KeyboardButton(text="Cancel")
     ]
 ]
 
