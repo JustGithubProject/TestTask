@@ -8,7 +8,7 @@ def filter_by_job(job_kind: str) -> str:
         return constants.JobPositionConstants.PYTHON_DEVELOPERS
     if job_kind == "Javascript developer":
         return constants.JobPositionConstants.JAVASCRIPT_DEVELOPERS
-    if job_kind == "Data science":
+    if job_kind == "Data science developer":
         return constants.JobPositionConstants.DATA_SCIENTISTS
     if job_kind == "Golang developer":
         return constants.JobPositionConstants.GOLANG_DEVELOPER
