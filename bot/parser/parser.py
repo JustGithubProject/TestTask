@@ -24,8 +24,20 @@ def get_titles(html_content) -> list:
 def get_links(html_content) -> list:
     soup = BS4(html_content, "html.parser")
     div_col_md_8 = soup.find("div", {"class": "col-md-8"})
+    
+    if not div_col_md_8:
+        return []
+
     h2_mt_0_all = div_col_md_8.find_all("h2", {"class": "mt-0"})
-    hrefs_content_all = [item.find("a").get("href") for item in h2_mt_0_all]
+    
+    hrefs_content_all = []
+    for item in h2_mt_0_all:
+        a_tag = item.find("a")  
+        if a_tag: 
+            href = a_tag.get("href")
+            if href:  
+                hrefs_content_all.append(href)
+                
     return hrefs_content_all
 
 
@@ -43,8 +55,9 @@ def get_resumes(html_content) -> list:
     links = get_links(html_content)
     
     cards = []
-    
-    for i in range(len(titles)):
+    min_length = min(len(titles), len(owners_info), len(links))
+    print(f"Titles={len(titles)}; owners_info={len(owners_info)}; links={len(links)}")
+    for i in range(min_length):
         card = {
             "title": titles[i],
             "owner_info": owners_info[i],

@@ -56,10 +56,10 @@ class LocationConstants:
     
 @dataclass(frozen=True)
 class SalaryConstants:
-    SALARY_TO_10K = "&salaryto=2"
-    SALARY_TO_15K = "&salaryto=3"
-    SALARY_TO_20K = "&salaryto=4"
-    SALARY_TO_30K = "&salaryto=5"
-    SALARY_TO_40K = "&salaryto=6"
-    SALARY_TO_50K = "&salaryto=7"
-    SALARY_TO_100K = "&salaryto=8"
+    SALARY_TO_10K = "&salaryto=2&period=1000"
+    SALARY_TO_15K = "&salaryto=3&period=1000"
+    SALARY_TO_20K = "&salaryto=4&period=1000"
+    SALARY_TO_30K = "&salaryto=5&period=1000"
+    SALARY_TO_40K = "&salaryto=6&period=1000"
+    SALARY_TO_50K = "&salaryto=7&period=1000"
+    SALARY_TO_100K = "&salaryto=8&period=1000"

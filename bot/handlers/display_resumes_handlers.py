@@ -273,7 +273,7 @@ async def process_salary(message: types.Message, state: FSMContext):
     print("Salary", current_url)
     current_url += salary
     print(current_url)
-    await state.clear()
+    await state.update_data(current_url=current_url)
     
     try:
         print(current_url)
@@ -281,6 +281,7 @@ async def process_salary(message: types.Message, state: FSMContext):
             
         # Process the resumes
         cards = get_resumes(html_content)
+        print(cards)
         if cards:
             for card in cards:
                 await message.answer(
@@ -292,6 +293,7 @@ async def process_salary(message: types.Message, state: FSMContext):
     except Exception as e:
         print(f"Error: {e}")
         await message.answer("На жаль, не вдалося знайти потрібних кандидатів.")
+        await state.clear()
         
    
         
