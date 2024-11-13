@@ -263,7 +263,6 @@ async def process_salary(message: types.Message, state: FSMContext):
     
     if current_url:
         try:
-            # Assuming request_to_site is an asynchronous function
             html_content = request_to_site(current_url)
             
             # Process the resumes
