@@ -14,6 +14,7 @@
     `TOKEN=8067043006:AAHLnEpVxcn7GK7w_UvUD9nQLfOeicndLiY` (YOU CAN USE MY TOKEN IF YOU WANT)
 
     ```bash
+    cd TestTask
     cd bot
     ```
 
