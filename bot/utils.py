@@ -15,6 +15,9 @@ LIST_KEYBOARD_BUTTONS_FOR_START_HANDLER = [
 
 LIST_KEYBOARD_BUTTONS_FOR_JOB_POSITION_HANDLER = [
     [
+        KeyboardButton(text="Cancel")
+    ],
+    [
         KeyboardButton(text="Web developer"),
         KeyboardButton(text="Python developer"),
     ],
@@ -29,11 +32,15 @@ LIST_KEYBOARD_BUTTONS_FOR_JOB_POSITION_HANDLER = [
     [
         KeyboardButton(text="Backend developer"),
         KeyboardButton(text="Fullstack developer"),
-    ]
+    ],
+
 ]
 
 
 LIST_KEYBOARD_BUTTONS_FOR_LOCATION_HANDLER = [
+    [
+        KeyboardButton(text="Cancel")
+    ],
     [
         KeyboardButton(text="Вся Україна"),
         KeyboardButton(text="Київ"),
@@ -63,20 +70,20 @@ LIST_KEYBOARD_BUTTONS_FOR_LOCATION_HANDLER = [
         KeyboardButton(text="Луцьк"),
         KeyboardButton(text="Ужгород"),
         KeyboardButton(text="Харків"),
-        KeyboardButton(text="Cancel")
+
     ]
 ]
 
 LIST_KEYBOARD_BUTTONS_FOR_EXPERIENCE_HANDLER = [
     [
         KeyboardButton(text="Без досвіду"),
+        KeyboardButton(text="Cancel")
     ],
     [
         KeyboardButton(text="1 рік"),
         KeyboardButton(text="1-2 роки"),
         KeyboardButton(text="2-5 роки"),
         KeyboardButton(text="5+ років"),
-        KeyboardButton(text="Cancel")
     ]
 ]
 
@@ -101,7 +108,7 @@ JOB_POSITIONS = [
     "Web developer",
     "Python developer",
     "Javascript developer",
-    "Data science",
+    "Data science developer",
     "Golang developer",
     "Frontend developer",
     "Backend developer",
@@ -118,12 +125,3 @@ EXPERIENCE_LEVELS = [
 ]
 
 
-def create_experience_keyboard(selected_experience=None):
-    selected_experience = selected_experience or set()
-    keyboard = InlineKeyboardMarkup()
-    
-    for experience in EXPERIENCE_LEVELS:
-        label = f"{'✅ ' if experience in selected_experience else ''}{experience}"
-        keyboard.add(InlineKeyboardButton(text=label, callback_data=f"experience:{experience}"))
-    
-    return keyboard

@@ -9,7 +9,7 @@ from aiogram.types import ReplyKeyboardMarkup
 
 from work_ua_parser import filters
 from work_ua_parser.parser import get_resumes, request_to_site
-from forms import ResumeFilterForm
+from forms import ResumeWorkUAFilterForm
 
 from utils import (
     JOB_POSITIONS,
@@ -37,7 +37,8 @@ async def cancel_handler(message: types.Message, state: FSMContext):
     
 
 @work_ua_display_resumes_router.message(F.text == "work.ua")
-async def handle_work_ua(message: types.Message):
+async def handle_work_ua(message: types.Message, state: FSMContext):
+    await state.set_state(ResumeWorkUAFilterForm.site)
     await message.answer(
         "Обери потрібний тобі варіант!",
         reply_markup=ReplyKeyboardMarkup(
@@ -47,13 +48,13 @@ async def handle_work_ua(message: types.Message):
     )
 
 
-@work_ua_display_resumes_router.message(F.text.in_(JOB_POSITIONS))
+@work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.site)
 async def handle_job_position(message: types.Message, state: FSMContext):
     """Handler for the job position"""
     
     current_url = filters.filter_by_job(message.text)
     await state.update_data(current_url=current_url)
-    await state.set_state(ResumeFilterForm.location)
+    await state.set_state(ResumeWorkUAFilterForm.location)
     await message.answer(
         "Виберіть місто для пошуку",
         reply_markup=ReplyKeyboardMarkup(
@@ -64,7 +65,7 @@ async def handle_job_position(message: types.Message, state: FSMContext):
 
 
 
-@work_ua_display_resumes_router.message(ResumeFilterForm.location)
+@work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.location)
 async def process_location(message: types.Message, state: FSMContext):
     
     # Converting a location to part of a URL path
@@ -76,7 +77,7 @@ async def process_location(message: types.Message, state: FSMContext):
     await state.update_data(current_url=current_url)
     print(current_url)
     
-    await state.set_state(ResumeFilterForm.experience)
+    await state.set_state(ResumeWorkUAFilterForm.experience)
     await message.answer(
         "Виберіть бажаний досвід кандидата",
         reply_markup=ReplyKeyboardMarkup(
@@ -86,7 +87,7 @@ async def process_location(message: types.Message, state: FSMContext):
     )
 
 
-@work_ua_display_resumes_router.message(ResumeFilterForm.experience)
+@work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.experience)
 async def process_experience(message: types.Message, state: FSMContext):
     
     # Converting an experience to part of a URL path
@@ -96,7 +97,7 @@ async def process_experience(message: types.Message, state: FSMContext):
     print("Experience", current_url)
     current_url += experience
     await state.update_data(current_url=current_url)
-    await state.set_state(ResumeFilterForm.salary)
+    await state.set_state(ResumeWorkUAFilterForm.salary)
     
     await message.answer(
         "Виберіть діапазон заробітної плати",
@@ -107,7 +108,7 @@ async def process_experience(message: types.Message, state: FSMContext):
     )
 
 
-@work_ua_display_resumes_router.message(ResumeFilterForm.salary)
+@work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.salary)
 async def process_salary(message: types.Message, state: FSMContext):
     
     # Convert salary to part of a URL path

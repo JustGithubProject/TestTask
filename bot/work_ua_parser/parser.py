@@ -6,7 +6,7 @@ from work_ua_parser import constants, utils
 from work_ua_parser import filters
 
 
-def request_to_site(url: str):
+def request_to_site(url: str) -> str:
     """
         Makes a GET request to the specified URL and returns the HTML content of the page
         if the request is successful (status code 200).
@@ -28,7 +28,7 @@ def get_titles(html_content) -> list:
     return h2_mt_0_content_all
 
 
-def get_links(html_content) -> list:
+def get_links(html_content: str) -> list:
     """
         Extracts all links associated 
         with resume titles from the HTML content.
@@ -52,7 +52,7 @@ def get_links(html_content) -> list:
     return hrefs_content_all
 
 
-def get_owners_info(html_content) -> list:
+def get_owners_info(html_content: str) -> list:
     """
         Extracts owner information associated
         with each resume from the HTML content.
@@ -64,7 +64,7 @@ def get_owners_info(html_content) -> list:
     return p_mt_xs_mb_0_content_all
 
 
-def get_resumes(html_content) -> list:
+def get_resumes(html_content: str) -> list:
     """
         Aggregates resume data including title, 
         owner information, and links into structured dictionary objects.
