@@ -8,13 +8,21 @@
     git clone https://github.com/JustGithubProject/TestTask.git
     ```
 
+2. **Install the dependency**
+    ```
+        cd TestTask
+    ```
+
+    ```
+        pip install -r requirements.txt
+    ```
+
 2. **Create Environment File**
 
     Navigate to the project directory and create a `.env` file. Add the `TOKEN` variable you received from BotFather.
     `TOKEN=8067043006:AAHLnEpVxcn7GK7w_UvUD9nQLfOeicndLiY` (YOU CAN USE MY TOKEN IF YOU WANT)
 
     ```bash
-    cd TestTask
     cd bot
     ```
 

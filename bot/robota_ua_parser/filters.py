@@ -1,7 +1,6 @@
 from robota_ua_parser import constants
 
 
-
 def filter_by_job(job_kind: str) -> str:
     """
         Returns the constant associated with a given job title.
