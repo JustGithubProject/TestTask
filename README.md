@@ -33,3 +33,8 @@
     ```bash
     python3 main.py
     ```
+
+4. **To install driver for Firefox**
+    ```
+       https://www.youtube.com/watch?v=9ye7srmAnMU
+    ```
