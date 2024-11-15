@@ -26,6 +26,10 @@ work_ua_display_resumes_router = Router()
 
 @work_ua_display_resumes_router.message(F.text == "Cancel")
 async def cancel_handler(message: types.Message, state: FSMContext):
+    """
+        Cancels the current process and clears the state,
+        then prompts the user to select an action from the main menu.
+    """
     await state.clear()
     await message.answer(
         "Обери потрібний тобі варіант!",
@@ -38,6 +42,10 @@ async def cancel_handler(message: types.Message, state: FSMContext):
 
 @work_ua_display_resumes_router.message(F.text == "work.ua")
 async def handle_work_ua(message: types.Message, state: FSMContext):
+    """
+        Initializes the resume search process
+        by prompting the user to select a job position.
+    """
     await state.set_state(ResumeWorkUAFilterForm.site)
     await message.answer(
         "Обери потрібний тобі варіант!",
@@ -50,7 +58,10 @@ async def handle_work_ua(message: types.Message, state: FSMContext):
 
 @work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.site)
 async def handle_job_position(message: types.Message, state: FSMContext):
-    """Handler for the job position"""
+    """
+        Processes the selected job position,
+        updates the search URL, and prompts the user to choose a location.
+    """
     
     current_url = filters.filter_by_job(message.text)
     await state.update_data(current_url=current_url)
@@ -67,6 +78,11 @@ async def handle_job_position(message: types.Message, state: FSMContext):
 
 @work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.location)
 async def process_location(message: types.Message, state: FSMContext):
+    """
+        Processes the selected location, updates the search URL
+        with the location, and asks the user to choose
+        the desired experience level.
+    """
     
     # Converting a location to part of a URL path
     location = filters.filter_by_location(message.text)
@@ -89,6 +105,10 @@ async def process_location(message: types.Message, state: FSMContext):
 
 @work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.experience)
 async def process_experience(message: types.Message, state: FSMContext):
+    """
+        Processes the selected experience level, updates the search URL,
+        and asks the user to choose a salary range.
+    """
     
     # Converting an experience to part of a URL path
     experience = filters.filter_by_experience(message.text)
@@ -110,6 +130,10 @@ async def process_experience(message: types.Message, state: FSMContext):
 
 @work_ua_display_resumes_router.message(ResumeWorkUAFilterForm.salary)
 async def process_salary(message: types.Message, state: FSMContext):
+    """
+        Processes the selected salary range, updates the search URL,
+        fetches the data, and displays the resumes or informs the user if no results were found.
+    """
     
     # Convert salary to part of a URL path
     salary = filters.filter_by_salary(message.text)

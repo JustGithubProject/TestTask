@@ -2,7 +2,7 @@ import requests
 
 from bs4 import BeautifulSoup as BS4
 
-from work_ua_parser import constants, utils
+from work_ua_parser import constants
 from work_ua_parser import filters
 
 

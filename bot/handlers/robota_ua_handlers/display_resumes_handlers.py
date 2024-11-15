@@ -36,7 +36,10 @@ robota_ua_display_resumes_router = Router()
 
 @robota_ua_display_resumes_router.message(F.text == "robota.ua")
 async def handle_robota_ua(message: types.Message, state: FSMContext):
-    # await state.update_data(site=message.text)
+    """
+        Initiates the resume search process
+        by prompting the user to select a job position.
+    """
     await state.set_state(ResumeRobotaUAFilterForm.site)
     await message.answer(
         "Обери потрібний тобі варіант!",
@@ -49,6 +52,10 @@ async def handle_robota_ua(message: types.Message, state: FSMContext):
     
 @robota_ua_display_resumes_router.message(ResumeRobotaUAFilterForm.site)
 async def process_site(message: types.Message, state: FSMContext):
+    """
+        Processes the selected job position
+        and asks the user to select a location for the job search.
+    """
     job_position = filter_by_job(message.text)
     await state.update_data(job_position=job_position)
     await state.set_state(ResumeRobotaUAFilterForm.location)
@@ -63,6 +70,10 @@ async def process_site(message: types.Message, state: FSMContext):
 
 @robota_ua_display_resumes_router.message(ResumeRobotaUAFilterForm.location)
 async def process_location(message: types.Message, state: FSMContext):
+    """
+        Processes the selected location and asks
+        the user to select the desired candidate experience level.
+    """
     location = filter_by_location(message.text)
     await state.update_data(location=location)
     await state.set_state(ResumeRobotaUAFilterForm.experience)
@@ -77,6 +88,10 @@ async def process_location(message: types.Message, state: FSMContext):
     
 @robota_ua_display_resumes_router.message(ResumeRobotaUAFilterForm.experience)
 async def process_experience(message: types.Message, state: FSMContext):
+    """
+        Processes the selected experience
+        level and prompts the user to select a salary range.
+    """
     experience = filter_by_experience(message.text)
     await state.update_data(experience=experience)
     await state.set_state(ResumeRobotaUAFilterForm.salary)
@@ -90,6 +105,11 @@ async def process_experience(message: types.Message, state: FSMContext):
 
 @robota_ua_display_resumes_router.message(ResumeRobotaUAFilterForm.salary)
 async def process_salary(message: types.Message, state: FSMContext):
+    """
+        Processes the selected salary range, builds the search URL,
+        fetches the data, and displays the resumes
+        or informs the user if no results were found.
+    """
     salary = filter_by_salary(message.text)
     await state.update_data(salary=salary)
     data = await state.get_data()
